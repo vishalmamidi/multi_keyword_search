@@ -104,7 +104,9 @@ class PostController extends Controller
        $fileContent = Storage::get($file->hashName());
        Storage::put($file->hashName(),Crypt::encrypt($fileContent));
 
-       // decrypteding 
+         // decrypteding 
+
+         //sfsd
 
         // $file = Storage::get('ex.encrypted.txt');
         // Storage::put('ex.decrypted.txt',Crypt::decrypt($file));
