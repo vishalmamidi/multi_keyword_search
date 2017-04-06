@@ -172,6 +172,15 @@ class PostController extends Controller
         return view('posts.search');
     }
 
+   
+   public function searching($query)
+   {
+       $posts =  Post::search($query)->get();
+       return view('posts.search',compact('posts'));
+   }
+
+
+
     public function myposts()
     {
         $id = Auth::user()->id;

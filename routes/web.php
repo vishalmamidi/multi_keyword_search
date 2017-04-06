@@ -15,24 +15,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+// all auth related routs
 Auth::routes();
+//
 Route::get('register/verify/{token}', 'Auth\RegisterController@verify');
 
 Route::get('/home', 'HomeController@index');
 
 
 
-/*
-Route::get('/upload', 'PostsController@upload');
-Route::post('/store', 'PostsController@store');
-Route::get('/search', 'PostsController@search');
-Route::get('/myfiles', 'PostsController@myfiles');
-*/
-
 Route::resource('users','UserController');
 
 Route::get('/posts/myposts', 'PostController@myposts');
+
 Route::get('/posts/search', 'PostController@search');
+
+// showing serach result
+//Route::get('/posts/search/{query}', 'PostController@searching');
+
 Route::resource('posts','PostController');
 
 Route::get('/download/{hashname}', 'DownloadController@download');

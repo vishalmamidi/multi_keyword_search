@@ -6,7 +6,7 @@
            <div class="col-md-8 col-md-offset-2">
 
             <a href="/posts" class="btn btn-sm btn-success">
-            Back...  
+            All Posts 
             </a>
             <hr>
             <div class="panel panel-default">
