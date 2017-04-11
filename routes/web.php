@@ -23,16 +23,22 @@ Route::get('register/verify/{token}', 'Auth\RegisterController@verify');
 
 Route::get('/home', 'HomeController@index');
 
+// profile controller
 
+Route::get('/edit-profile', 'ProfileController@edit');
+
+Route::match(['put', 'patch'], '/update','ProfileController@update');
+
+// user routes
 
 Route::resource('users','UserController');
+
+
+// post routes 
 
 Route::get('/posts/myposts', 'PostController@myposts');
 
 Route::get('/posts/search', 'PostController@search');
-
-// showing serach result
-//Route::get('/posts/search/{query}', 'PostController@searching');
 
 Route::resource('posts','PostController');
 

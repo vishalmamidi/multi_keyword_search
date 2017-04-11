@@ -40,36 +40,8 @@
                         </div>
 
 
-                      {{--   user type   --}}
-                        <div class="form-group">
-                            <label for="role" class="col-md-4 control-label">User Type</label>
-
-                            <div class="col-md-6">
-                                
-                             <select class="form-control" name='role' value="{{$user->role}}">
-                                     <option value="user">User</option>
-                                     <option value="admin">Admin</option>
-                             </select>
-
-                            </div>
-                                
 
 
-                        </div>
-
-
-                      {{--   verified status    --}}
-
-                        <div class="form-group">
-                            <label for="verified" class="col-md-4 control-label">verified Status</label>
-
-                            <div class="col-md-6">            
-                               <select class="form-control" name='verified'  value="{{$user->verified}}">
-                                     <option value="1">Verified</option>
-                                     <option value="0">Un-Verified</option>
-                               </select>
-                           </div>
-                        </div>
 
                         {{--   email    --}}
 

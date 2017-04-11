@@ -26,8 +26,10 @@
                 </div>
   
                 <div class="panel-body text-right">
-                  <span> Posted by.. </span>
-                  <span class="label label-danger"> {{ucwords( $post->user->name )}} </span>
+                  <span> By.. </span>
+                   
+                 
+                  <span><img src= {{ $post->user->dp_url }} style="width:25px;height:25px;border-radius:50%;"> </span>
                  </div> 
                 
                 

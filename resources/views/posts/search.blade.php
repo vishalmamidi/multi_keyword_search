@@ -70,7 +70,7 @@
                             <p class="group inner list-group-item-text">@{{ product.description }}</p>
                             <div class="row">
                                 <div class="col-xs-12 col-md-6">
-                                    <a class="btn btn-success" href="#">View Post</a>
+                                    <a class="btn btn-success" href="/posts/@{{ product.id }}">View Post</a>
                                 </div>
                             </div>
 

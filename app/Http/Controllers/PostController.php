@@ -78,7 +78,7 @@ class PostController extends Controller
 
                 
                 $file = $request->file('attachment');      // get the file instance
-                $path       = $file->store('');            // save and return the path of file 
+                $path       = $file->store('','s3');            // save and return the path of file 
                           
                         
 
@@ -91,7 +91,7 @@ class PostController extends Controller
           }   
 
 
-        $post->user_id      = Auth::id();;
+        $post->user_id      = Auth::id();
         $post->title        = $request->input('title');
         $post->description  = $request->input('description');
         

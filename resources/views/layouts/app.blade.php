@@ -10,10 +10,10 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Styles -->
-    
-    
+    <!-- Styles -->  
     <link href="/css/app.css" rel="stylesheet">
+    
+
 
     <!-- Scripts -->
     <script>
@@ -80,10 +80,27 @@
                             <li><a href="{{ url('posts/search') }}">Search</a></li>                        
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                   <!-- image -->
+                                      
+                                     <span><img src={{ Auth::user()->dp_url }} style="width:25px;height:25px;border-radius:50%;"></span>
+                                     <span class="caret"></span>
+                                    
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                 
+                                    <li>
+                                      <a href="{{ url('/editprofile') }}">Edit P </a>
+                                    </li>
+
+                                    <li>
+                                      <a href="{{ url('/profilepic') }}">Edit Profile Pic </a>
+                                    </li>
+
+                                    <li>
+                                      <a href="{{ url('/edit-profile') }}">Edit Profile </a>
+                                    </li>                                    
+
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
