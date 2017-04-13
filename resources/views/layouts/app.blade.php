@@ -89,13 +89,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                  
-                                    <li>
-                                      <a href="{{ url('/editprofile') }}">Edit P </a>
-                                    </li>
 
-                                    <li>
-                                      <a href="{{ url('/profilepic') }}">Edit Profile Pic </a>
-                                    </li>
 
                                     <li>
                                       <a href="{{ url('/edit-profile') }}">Edit Profile </a>

@@ -16,7 +16,7 @@
                       {{ csrf_field() }}
 
                       <div class="form-group">
-                        <label >Keystoke</label>
+                        <label >Title</label>
                         <input type="text" class="form-control" name="title" >
 
                          @if ($errors->has('title'))
@@ -34,7 +34,7 @@
                       </div>
                     
                       <div class="form-group">
-                        <label >File input</label>
+                        <label >Attach a file</label>
                         <input type="file" name="attachment" class="form-control-file"  >
 
                          @if ($errors->has('attachment'))

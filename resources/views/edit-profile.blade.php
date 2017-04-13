@@ -31,13 +31,13 @@
 
 
                                     <div class="form-group">
-                                       <span> {{ Auth::user()->dp_url  }} </span>
+                                       
                                        <img class="img-responsive center-block" 
                                             src={{ Auth::user()->dp_url  }}  
                                             >
                                     </div> 
 
-                                    <!--"{{ Storage::disk('s3')->url('avatars/').Auth::id()."/avatar.jpg"   }}" -->
+                                    
                                     
 
                                      &nbsp
