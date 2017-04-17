@@ -33,7 +33,7 @@
                                     <div class="form-group">
                                        
                                        <img class="img-responsive center-block" 
-                                            src={{ Auth::user()->dp_url  }}  
+                                            src={{ Storage::url(Auth::user()->dp_url)  }}  
                                             >
                                     </div> 
 
@@ -44,16 +44,16 @@
      
 
 
-                            {{--   upload    --}}
+                            {{-- file  upload    --}}
                              <div class="form-group">
                                  <label  class="col-md-4 control-label">Upload Image</label>
      
                                  <div class="col-md-6">
                                      <input type="file" name="dp"   class="form-control">
 
-                                     @if ($errors->has('image'))
+                                     @if ($errors->has('dp'))
                                         <span class="help-block">
-                                            <strong class="text-danger">{{ $errors->first('image') }}</strong>
+                                            <strong class="text-danger">{{ $errors->first('dp') }}</strong>
                                         </span>
                                     @endif
                                  </div>
@@ -68,7 +68,7 @@
                             <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{$user->name}}"  autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{$user->name}}"  autofocus>                          
                             </div>
                         </div>
 
@@ -82,7 +82,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{$user->email}}" >
+                                <input id="email" type="email" class="form-control" name="email" value="{{$user->email}}" >                           
                             </div>
                         </div>
                        
@@ -92,7 +92,7 @@
                             <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" placeholder="*********" >
+                                <input id="password" type="password" class="form-control" name="password" placeholder="*********" >                            
                             </div>
                         </div>
 

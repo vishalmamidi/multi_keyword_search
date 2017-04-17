@@ -25,31 +25,39 @@ class ProfileController extends Controller
     }
 
     public function update(Request $request)
-    {
+    {        
         $user = Auth::user();
 
         $userData = array_filter($request->all());
         if (isset($userData['password']))
             $userData['password'] = bcrypt($userData['password']);
 
-if ($request->hasFile('dp'))
- {
-    
-        $file = request()->file('dp');
-        $ext  = $file->extension();
-       
-
-
-        $file -> storeAs( 'Profilepics/' . auth()->id(), "dp.{$ext}");
-        $user->dp_url =  Storage::disk('s3')->url('Profilepics/' . auth()->id(). "/dp.{$ext}");      
-
-
- }
+       if ($request->hasFile('dp'))
+        {
+               
+           $file = request()->file('dp');
+           $ext  = $file->extension();
+           
+           if($user->dp_url != 'dp.jpeg')
+            {
+                if(Storage::exists($user->dp_url)) 
+                 {
+                    Storage::delete($user->dp_url);
+                 }
+            }
+           
+           $path = $file -> storeAs( 'dp' , auth()->id() . ".{$ext}");
+           
+           $user->dp_url =  $path;
+                 
+           
+           
+        }
         // update that user
-        $user->fill($userData);
-       
+        $user->fill($userData);      
         $user->save();
 
+       
         return back();
        
         

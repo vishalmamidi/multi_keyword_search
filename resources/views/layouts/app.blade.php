@@ -82,7 +82,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                    <!-- image -->
                                       
-                                     <span><img src={{ Auth::user()->dp_url }} style="width:25px;height:25px;border-radius:50%;"></span>
+                                     <span><img src={{ Storage::url(Auth::user()->dp_url) }} style="width:25px;height:25px;border-radius:50%;"></span>
                                      <span class="caret"></span>
                                     
                                 </a>

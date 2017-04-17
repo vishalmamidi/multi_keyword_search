@@ -162,7 +162,16 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        Post::destroy($id);
+       
+        $post = Post::find($id);
+        
+           if(Storage::exists($post->hash_name)) 
+            {
+             Storage::delete($post->hash_name);
+            }
+
+        Post::destroy($id);    
+        
         return redirect('/posts');
     }
 

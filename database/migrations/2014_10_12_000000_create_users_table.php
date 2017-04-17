@@ -18,7 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('dp_url')->default('/assets/dp.jpg');
+
+            $table->string('dp_url')->default('dp.jpeg');
+
             $table->tinyInteger('verified')->default(0);
 
             
