@@ -17,7 +17,8 @@
             <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Joined</th>
+                <th>User Type</th>
+                <th></th>
                 <th></th>
             </tr>
         </thead>
@@ -25,11 +26,11 @@
         <tbody>
             @foreach ($users as $user)
             <tr>
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->email }}</td>
-                <td>{{ $user->created_at->diffForHumans() }}</td>
+                <td>{{ ucwords($user->name) }}</td>
+                <td>{{         $user->email }}</td>
+                <td>{{ ucwords($user->role) }}</td>
                 <td>
-                    <ul class="list-inline list-unstyled">
+                    <ul class="list-inline list-unstyled">                    
                         <li><a href="/users/{{ $user->id }}" class="btn btn-link">View</a></li>
                         <li><a href="/users/{{ $user->id }}/edit" class="btn btn-link">Edit</a></li>
                        
