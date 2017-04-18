@@ -68,7 +68,7 @@
                             <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{$user->name}}"  autofocus>                          
+                                <input id="name" type="text" class="form-control" name="name" value="{{$user->name}}"  autofocus>                         
                             </div>
                         </div>
 
@@ -82,7 +82,12 @@
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{$user->email}}" >                           
+                                <input id="email" type="email" class="form-control" name="email" value="{{$user->email}}" >
+                                     @if ($errors->has('email'))
+                                        <span class="help-block">
+                                            <strong class="text-danger">{{ $errors->first('email') }}</strong>
+                                        </span>
+                                    @endif                            
                             </div>
                         </div>
                        
@@ -92,7 +97,12 @@
                             <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" placeholder="*********" >                            
+                                <input id="password" type="password" class="form-control" name="password" placeholder="*********" >
+                                     @if ($errors->has('password'))
+                                        <span class="help-block">
+                                            <strong class="text-danger">{{ $errors->first('password') }}</strong>
+                                        </span>
+                                    @endif                            
                             </div>
                         </div>
 

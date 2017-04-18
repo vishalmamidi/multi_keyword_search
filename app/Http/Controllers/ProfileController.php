@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use Session;
@@ -25,8 +26,19 @@ class ProfileController extends Controller
     }
 
     public function update(Request $request)
-    {        
+    {    
+        
+        
         $user = Auth::user();
+
+        $this->validate($request, [
+           'email'    => Rule::unique('users')->ignore($user->id, 'id'),
+           'dp'       => 'max:5000|image',
+           'password' =>  'min:3'
+        ]);
+  
+
+
 
         $userData = array_filter($request->all());
         if (isset($userData['password']))
