@@ -30,7 +30,7 @@
                 <td>{{         $user->email }}</td>
                 <td>{{ ucwords($user->role) }}</td>
 
-                <td>    
+                <td class="override">    
                         @if($user->role != 'admin')
 
                           <form action="/status/{{ $user->id }}" method="get">                          
@@ -38,18 +38,13 @@
                                     
                                    
                                     <button type="submit" 
-                                            class="btn btn-default btn-block"
+                                            class="btn btn-default btn-link"
                                             role="button">
-                                            
-                                            
-
                                                    @if($user->status)
                                                      Active
                                                    @else
                                                      In-active
-                                                   @endif    
-
-                                            
+                                                   @endif               
                                     </button>
                                     
                           </form>
@@ -59,21 +54,41 @@
                 </td>       
 
                 <td>
-                    <ul class="list-inline list-unstyled">                    
-                        <li><a href="/users/{{ $user->id }}" class="btn btn-link">View</a></li>
-                        <li><a href="/users/{{ $user->id }}/edit" class="btn btn-link">Edit</a></li>
-                       
-                       @if(Auth::user()->email != $user->email )  {{-- if the displaying user is not logged in user we should not display delete --}}
-                        <li>  <form action="/users/{{ $user->id }}" method="POST">
+
+               
+                
+                 <div class="dropdown">
+                   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                     Action
+                     <span class="caret"></span>
+                   </button>
+                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="/users/{{ $user->id }}"     >View</a></li>
+                        <li><a href="/users/{{ $user->id }}/edit">Edit</a></li>
+                     
+                     
+
+                      @if(Auth::user()->email != $user->email )
+                         
+                      <li role="separator" class="divider"></li>
+
+                      <li>
+                         <a>
+                           <form action="/users/{{ $user->id }}" method="POST">
                                     {!! csrf_field() !!}
                                     <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="btn btn-link">Delete</button>
-                              </form>
-                        </li>
-                       @endif
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                           </form>
+                         </a>
+                      </li>
+                      @endif
+
+                   </ul>
+                 </div>
 
 
-                    </ul>
+
+
                 </td>
             </tr>
             @endforeach 

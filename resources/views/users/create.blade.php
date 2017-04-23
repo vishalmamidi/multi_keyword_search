@@ -50,6 +50,7 @@
                             <div class="col-md-6">
                                  
                                  <select class="form-control" name='role'>
+                                     <option value="viewer" selected>Viewer</option>
                                      <option value="user">User</option>
                                      <option value="admin">Admin</option>
                                 </select>
@@ -68,12 +69,25 @@
 
                             <div class="col-md-6">
                                 <select class="form-control" name='verified'>
-                                     <option value="1">Verified</option>
+                                     <option value="1" selected>Verified</option>
                                      <option value="0">Un-Verified</option>
                                 </select>
                             </div>
                         </div>
 
+
+                      {{--   account status    --}}
+
+                        <div class="form-group">
+                            <label for="status" class="col-md-4 control-label">Account Status</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control" name='status'>
+                                     <option value="1" selected>Active</option>
+                                     <option value="0">in-active</option>
+                                </select>
+                            </div>
+                        </div>
 
 
                         {{--   email    --}}

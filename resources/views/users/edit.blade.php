@@ -46,9 +46,24 @@
 
                             <div class="col-md-6">
                                 
-                             <select class="form-control" name='role' value="{{$user->role}}">
-                                     <option value="user">User</option>
-                                     <option value="admin">Admin</option>
+                             <select class="form-control" name='role'>
+                                     <option value="viewer" 
+                                         @if($user->role == "viewer")
+                                         selected
+                                         @endif 
+                                         
+                                         >Viewer</option>
+                                     <option value="user" 
+                                         @if($user->role == "user")
+                                         selected
+                                         @endif 
+                                         
+                                         >User</option>
+                                     <option value="admin"
+                                         @if($user->role == "admin")
+                                         selected
+                                         @endif 
+                                         >Admin</option>
                              </select>
 
                             </div>
@@ -58,18 +73,29 @@
                         </div>
 
 
-                      {{--   verified status    --}}
+                      {{--   status status    --}}
 
+                     @if($user->role != "admin")
                         <div class="form-group">
-                            <label for="verified" class="col-md-4 control-label">verified Status</label>
+                            <label for="verified" class="col-md-4 control-label">Status</label>
 
                             <div class="col-md-6">            
-                               <select class="form-control" name='verified'  value="{{$user->verified}}">
-                                     <option value="1">Verified</option>
-                                     <option value="0">Un-Verified</option>
+                               <select class="form-control" name='status'>
+                                     <option value="1"
+                                         @if($user->status==1 )
+                                         selected
+                                         @endif 
+                                                      >Active</option>
+                                     <option value="0"
+                                         @if($user->status==0 )
+                                         selected
+                                         @endif 
+                                                      >In-active</option>
                                </select>
                            </div>
                         </div>
+
+                     @endif
 
                         {{--   email    --}}
 

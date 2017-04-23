@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<link href="/css/profilepic.blade.css" rel="stylesheet">
 @section('content')
 
    
@@ -20,6 +20,17 @@
  
             <div class="panel-body">
                
+
+                         &nbsp
+                         <div class="form-group">
+                            
+                            <img class="img-responsive center-block" 
+                                 src={{ Storage::url($user->dp_url)  }}  
+                                 >
+                         </div> 
+                         &nbsp
+
+
              {{--   name    --}}
                         <div class="form-group">
                             <label class="col-md-4 control-label"><h3> Name                </h3></label>
@@ -39,15 +50,17 @@
                         </div>
 
                                      {{--   status   --}}
+                        @if($user->role!="admin")
                         <div class="form-group">
                             <label class="col-md-4 control-label"><h3> Status               </h3></label>
-                            <label class="col-md-6 control-label"><h3>  @if ( ($user->verified)==0 ) 
-                                                                             Un-verified
+                            <label class="col-md-6 control-label"><h3>  @if ( ($user->status)==0 ) 
+                                                                             In-active
                                                                         @else
-                                                                             verified
+                                                                             Active
                                                                         @endif       
                                                                                              </h3></label>
-                       
+                       @endif
+
 
 
 

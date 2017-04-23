@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use Session;
-
+use Storage;
 
 class UserController extends Controller
 {
@@ -63,6 +63,7 @@ class UserController extends Controller
         $user->name     = $request->input('name');
         $user->role     = $request->input('role');
         $user->verified = $request->input('verified');
+        $user->status   = $request->input('status');
         $user->email    = $request->input('email');
         $user->password = bcrypt($request->input('password'));
         $user->save();
@@ -127,7 +128,12 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    {   
+        $user = User::find($id);
+        if(Storage::exists($user->dp_url)) 
+         {
+          Storage::delete($user->dp_url);
+         }       
         User::destroy($id);
 
         return redirect('/users');
