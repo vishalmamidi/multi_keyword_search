@@ -108,6 +108,7 @@ class PostController extends Controller
        //$fileContent = Storage::get($file->hashName());
        
        $fileContent = Storage::disk('local')->get($file->hashName());
+       Storage::disk('local')->delete($file->hashName());
 
        Storage::put($file->hashName(),Crypt::encrypt($fileContent));
 
