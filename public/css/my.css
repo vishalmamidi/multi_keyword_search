@@ -4,3 +4,6 @@
 .navbar-brand {
    line-height: 35px;  
 }
+.override {
+    text-align: center;
+}
