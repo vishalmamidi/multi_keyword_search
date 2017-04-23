@@ -10,6 +10,7 @@
         <a href="/users" class="btn btn-sm btn-success">
           Back...  
         </a>
+        <hr>
 
             <div class="panel panel-default">
             
