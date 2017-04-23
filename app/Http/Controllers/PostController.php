@@ -20,7 +20,9 @@ class PostController extends Controller
 
    public function __construct()
     {
-       $this->middleware('auth');
+       $this->middleware('auth');  // just check wether user is authenticated or not 
+       $this->middleware('user',['except' =>[ 'index','show' ,'search']]); //checks wether user type is user or not 
+       $this->middleware('status');
     }
 
    
@@ -78,7 +80,7 @@ class PostController extends Controller
 
                 
                 $file = $request->file('attachment');      // get the file instance
-                $path       = $file->store('','s3');            // save and return the path of file 
+                $path       = $file->store('','local');            // save and return the path of file 
                           
                         
 
@@ -101,7 +103,10 @@ class PostController extends Controller
 
         // encrypting 
 
-       $fileContent = Storage::get($file->hashName());
+       //$fileContent = Storage::get($file->hashName());
+       
+       $fileContent = Storage::disk('local')->get($file->hashName());
+
        Storage::put($file->hashName(),Crypt::encrypt($fileContent));
 
          // decrypteding 

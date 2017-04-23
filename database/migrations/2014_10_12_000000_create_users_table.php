@@ -22,14 +22,14 @@ class CreateUsersTable extends Migration
             $table->string('dp_url')->default('dp.jpeg');
 
             $table->tinyInteger('verified')->default(0);
-
+            $table->tinyInteger('status')->default(0);
             
             $table->string('email_token')->index()->nullable();
             $table->rememberToken();
             $table->timestamps();
 
 
-            $table->string('role')->default('user');;
+            $table->string('role')->default('viewer');
         });
     }
 

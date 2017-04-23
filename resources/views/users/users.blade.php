@@ -17,8 +17,8 @@
             <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th>User Type</th>
-                <th></th>
+                <th>Type</th>
+                <th class="override">Status</th>
                 <th></th>
             </tr>
         </thead>
@@ -29,6 +29,35 @@
                 <td>{{ ucwords($user->name) }}</td>
                 <td>{{         $user->email }}</td>
                 <td>{{ ucwords($user->role) }}</td>
+
+                <td>    
+                        @if($user->role != 'admin')
+
+                          <form action="/status/{{ $user->id }}" method="get">                          
+                                    {!! csrf_field() !!}
+                                    
+                                   
+                                    <button type="submit" 
+                                            class="btn btn-default btn-block"
+                                            role="button">
+                                            
+                                            
+
+                                                   @if($user->status)
+                                                     Active
+                                                   @else
+                                                     In-active
+                                                   @endif    
+
+                                            
+                                    </button>
+                                    
+                          </form>
+       
+                          
+                       @endif
+                </td>       
+
                 <td>
                     <ul class="list-inline list-unstyled">                    
                         <li><a href="/users/{{ $user->id }}" class="btn btn-link">View</a></li>
@@ -42,6 +71,7 @@
                               </form>
                         </li>
                        @endif
+
 
                     </ul>
                 </td>

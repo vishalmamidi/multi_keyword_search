@@ -31,7 +31,10 @@ Route::match(['put', 'patch'], '/update','ProfileController@update');
 
 // user routes
 
+Route::get('/status/{id}','userController@changestatus');
+
 Route::resource('users','UserController');
+
 
 
 // post routes 

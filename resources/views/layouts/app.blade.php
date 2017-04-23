@@ -12,8 +12,7 @@
 
     <!-- Styles -->  
     <link href="/css/app.css" rel="stylesheet">
-    
-
+    <link href="/css/my.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -55,13 +54,18 @@
                     <ul class="nav navbar-nav">
                         &nbsp;
 
-                        @if (Auth::user())
+                        @if (Auth::user())                        
                           @if (Auth::User()->role=="admin")
-                          <li><a href="{{ url('/users') }}">Users</a></li>
-                          @endif
-                          <li><a href="{{ url('/posts/create') }}">Create Post</a></li>
-                          <li><a href="{{ url('/posts') }}">Posts</a></li>
-                          <li><a href="{{ url('/posts/myposts') }}">Myposts</a></li>
+                             <li><a href="{{ url('/users') }}">Users</a></li>
+                          @endif                           
+
+                          @if (Auth::User()->role=="user" || Auth::User()->role=="admin")
+                             <li><a href="{{ url('/posts/create') }}">Create Post</a></li>
+                             <li><a href="{{ url('/posts') }}">Posts</a></li>
+                             <li><a href="{{ url('/posts/myposts') }}">Myposts</a></li>
+                          @else
+                             <li><a href="{{ url('/posts') }}">Posts</a></li>   
+                          @endif   
                         @endif
 
                     </ul>
@@ -82,7 +86,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                    <!-- image -->
                                       
-                                     <span><img src={{ Storage::url(Auth::user()->dp_url) }} style="width:25px;height:25px;border-radius:50%;"></span>
+                                     <span><img src={{ Storage::url(Auth::user()->dp_url) }} style="width:35px;height:35px;border-radius:50%;"></span>
                                      <span class="caret"></span>
                                     
                                 </a>
@@ -123,7 +127,8 @@
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+
+    <script src="/js/vue.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.0.1/vue-resource.min.js"></script>
 
 

@@ -4,12 +4,17 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-
+     @if(Auth::User()->role == 'viewer')
+        <a href="/home" class="btn btn-sm btn-success">
+        back
+        </a>          
+        <hr>  
+     @else
         <a href="/posts/create" class="btn btn-sm btn-success">
         Create a Post
         </a>          
         <hr>
-
+     @endif
 
     {{-- LIST ALL THE USERS --}}
 

@@ -23,7 +23,7 @@ class UserController extends Controller
 
     public function index()
     {    
-        Session::flash('message', 'index flash');
+
         $users = User::get();
         return view('users.users',compact('users'));
     }
@@ -35,7 +35,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        Session::flash('message', 'create flash');
+
         return view('users.create');
 
     }
@@ -67,7 +67,6 @@ class UserController extends Controller
         $user->password = bcrypt($request->input('password'));
         $user->save();
 
-        Session::flash('message', 'user has been created successfully');
         // redirect back to the users list
         return redirect('users');  
     }
@@ -133,7 +132,25 @@ class UserController extends Controller
 
         return redirect('/users');
     }
+    
 
 
+
+     public function changestatus($id)
+     {
+        // get all the data for our user
+        $user = User::find($id);
+
+        if($user)
+         {  
+            if($user->status == 0)
+              $user->status = 1;
+             else
+              $user->status = 0; 
+            $user->save();
+         }
+        // redirect back to the users list
+        return redirect('/users');
+    }   
 
 }
