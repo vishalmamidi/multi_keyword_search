@@ -18,44 +18,36 @@
 
     {{-- LIST ALL THE USERS --}}
 
-    <table class="table table-hover table-striped table-border">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Posted</th>
-                <th></th>
-            </tr>
-        </thead>
 
-        <tbody>
-            @foreach ($posts as $post)
-            <tr>
-                <td>{{ $post->title }}        </td>
-                
-                
-                <td>  {{ucwords( $post->user->name )}}  </td>
+          <div id="posts" class="row list-group">
 
+          @foreach ($posts as $post)
 
-                <td>{{ $post->created_at->diffForHumans() }}</td>
-                <td>
-                    <ul class="list-inline list-unstyled">
-
-                        <li><a href="/posts/{{ $post->id }}" class="btn btn-link">View</a></li>
+            <div class="item col-xs-4 col-lg-4" >
+                <div class="thumbnail">
                         
-                         <li>  
-                              <form action="/posts/{{ $post->id }}" method="POST">
-                                    {!! csrf_field() !!}
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="btn btn-link">Delete</button>
-                              </form>
-                        </li>
+                        <div class="caption">
+                            <h4 class="group inner list-group-item-heading"><b> {{ $post->title }} </b></h4>
+                            <p class="group inner list-group-item-text">{{ $post->description }}</p>
+                            
+                            <div class=" text-right">
+                                            
+                               <a class="btn btn-success " href="/posts/{{ $post->id }}">View Post</a> 
 
-                    </ul>
-                </td>
+                            </div> 
+                            
+                            
 
-            </tr>
-            @endforeach 
+                        </div>
+
+                    </div>
+                </div>
+             @endforeach  
+
+            </div>
+
+
+
 
 
         </tbody>

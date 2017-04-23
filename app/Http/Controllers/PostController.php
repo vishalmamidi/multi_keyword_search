@@ -35,8 +35,10 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::get();
-        
-        return view('posts.posts',compact('posts'));
+        if(Auth::user()->role=='admin')
+         return view('posts.postsforadmin',compact('posts'));
+        else
+          return view('posts.posts',compact('posts'));
     }
 
     /**
