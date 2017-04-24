@@ -130,7 +130,7 @@ class UserController extends Controller
     public function destroy($id)
     {   
         $user = User::find($id);
-        if(Storage::exists($user->dp_url)) 
+        if(Storage::exists($user->dp_url) && $user->dp_url!='dp.jpeg') 
          {
           Storage::delete($user->dp_url);
          }       
