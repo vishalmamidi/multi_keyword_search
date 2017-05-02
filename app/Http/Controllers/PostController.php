@@ -36,7 +36,8 @@ class PostController extends Controller
     {
         $posts = Post::get();
         if(Auth::user()->role=='admin')
-         return view('posts.postsforadmin',compact('posts'));
+        //  return view('posts.postsforadmin',compact('posts'));
+            return view('home');
         else
           return view('posts.posts',compact('posts'));
     }

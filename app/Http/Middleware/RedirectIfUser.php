@@ -16,7 +16,7 @@ class RedirectIfUser
     public function handle($request, Closure $next)
     {   
        $user = $request->user();
-       if ( ($user && $user->role == 'user') || ($user && $user->role == 'admin'))
+       if ( ($user && $user->role == 'user') )
        {
          return $next($request);
        }

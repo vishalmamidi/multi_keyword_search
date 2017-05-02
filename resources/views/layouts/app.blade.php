@@ -57,9 +57,9 @@
                         @if (Auth::user())                        
                           @if (Auth::User()->role=="admin")
                              <li><a href="{{ url('/users') }}">Users</a></li>
-                          @endif                           
+                                                     
 
-                          @if (Auth::User()->role=="user" || Auth::User()->role=="admin")
+                          @elseif (Auth::User()->role=="user" || Auth::User()->role=="admin")
                              <li><a href="{{ url('/posts/create') }}">Create Post</a></li>
                              <li><a href="{{ url('/posts') }}">Posts</a></li>
                              <li><a href="{{ url('/posts/myposts') }}">Myposts</a></li>
