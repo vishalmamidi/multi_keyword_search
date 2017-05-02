@@ -34,7 +34,7 @@ class ProfileController extends Controller
         $this->validate($request, [
            'email'    => Rule::unique('users')->ignore($user->id, 'id'),
            'dp'       => 'max:5000|image',
-           'password' =>  'min:3'
+           'password' =>  'min:3|nullable'
         ]);
   
 
